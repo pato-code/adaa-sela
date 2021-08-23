@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Returns extends Model
+class Returns extends GlobalModel
 {
 	protected $table = 'returns';
     protected $fillable =[

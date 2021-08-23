@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Payroll extends Model
+class Payroll extends GlobalModel
 {
     protected $fillable =[
         "reference_no", "employee_id", "account_id", "user_id",

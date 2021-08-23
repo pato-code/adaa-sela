@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductPurchase extends Model
+class ProductPurchase extends GlobalModel
 {
     protected $table = 'product_purchases';
     protected $fillable =[

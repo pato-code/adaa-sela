@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PaymentWithCheque extends Model
+class PaymentWithCheque extends GlobalModel
 {
     protected $table = 'payment_with_cheque';
 

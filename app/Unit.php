@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Unit extends Model
+class Unit extends GlobalModel
 {
     protected $fillable =[
 
@@ -14,6 +14,6 @@ class Unit extends Model
     public function product()
     {
     	return $this->hasMany('App/Product');
-    	
+
     }
 }

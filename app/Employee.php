@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Employee extends Model
+class Employee extends GlobalModel
 {
     protected $fillable =[
         "name", "image", "department_id", "email", "phone_number",
@@ -15,5 +15,5 @@ class Employee extends Model
     {
     	return $this->hasMany('App\Payroll');
     }
-    
+
 }

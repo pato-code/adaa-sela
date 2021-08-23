@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Holiday extends Model
+class Holiday extends GlobalModel
 {
     protected $fillable = ["user_id", "from_date", "to_date", "note", "is_approved"];
 

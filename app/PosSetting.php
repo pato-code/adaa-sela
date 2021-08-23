@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PosSetting extends Model
+class PosSetting extends GlobalModel
 {
     protected $table = 'pos_setting';
     protected $fillable =[

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Biller extends Model
+class Biller extends GlobalModel
 {
     protected $fillable =[
         "name", "image", "company_name", "vat_number",

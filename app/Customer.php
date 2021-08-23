@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Customer extends GlobalModel
 {
     protected $fillable =[
         "customer_group_id", "user_id", "name", "company_name",

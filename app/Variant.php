@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Variant extends Model
+class Variant extends GlobalModel
 {
     protected $fillable = ['name'];
 

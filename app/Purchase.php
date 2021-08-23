@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Purchase extends Model
+class Purchase extends GlobalModel
 {
     protected $fillable =[
 

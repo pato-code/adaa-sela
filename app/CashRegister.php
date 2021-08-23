@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CashRegister extends Model
+class CashRegister extends GlobalModel
 {
     protected $fillable = ["cash_in_hand", "user_id", "warehouse_id", "status"];
 

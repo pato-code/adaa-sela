@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GiftCard extends Model
+class GiftCard extends GlobalModel
 {
      protected $fillable =[
-        "card_no", "amount", "expense", "customer_id", "user_id", "expired_date", "created_by", "is_active"  
+        "card_no", "amount", "expense", "customer_id", "user_id", "expired_date", "created_by", "is_active"
     ];
 }

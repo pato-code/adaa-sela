@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StockCount extends Model
+class StockCount extends GlobalModel
 {
     protected $table = 'stock_counts';
     protected $fillable =[

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tax extends Model
+class Tax extends GlobalModel
 {
     protected $fillable =[
         "name", "rate", "is_active"
@@ -13,6 +13,6 @@ class Tax extends Model
     public function product()
     {
     	return $this->hasMany('App/Product');
-    	
+
     }
 }

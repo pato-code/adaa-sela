@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductVariant extends Model
+class ProductVariant extends GlobalModel
 {
     protected $fillable = ['product_id', 'variant_id', 'position', 'item_code', 'additional_price', 'qty'];
 

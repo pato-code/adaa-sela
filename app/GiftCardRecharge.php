@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GiftCardRecharge extends Model
+class GiftCardRecharge extends GlobalModel
 {
     protected $table = 'gift_card_recharges';
 

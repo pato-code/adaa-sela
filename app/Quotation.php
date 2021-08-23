@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Quotation extends Model
+class Quotation extends GlobalModel
 {
     protected $fillable =[
 

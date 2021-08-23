@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MoneyTransfer extends Model
+class MoneyTransfer extends GlobalModel
 {
     protected $fillable = ['reference_no', 'from_account_id', 'to_account_id', 'amount'];
 

@@ -585,5 +585,10 @@ return [
 	"This product has different price for different warehouse" => "This product has different price for different warehouse",
 	"Backup Database" => "Backup Database",
 	"Invoice Format" => "Invoice Format",
+    "organization_add" => "Add Organization",
+    "organization_name" => "Name",
+    "organization_domain" => "Domain",
+    "organization_manager" => "Manager",
+    "organization_branches" => "Number Of Branches",
 ];
 ?>

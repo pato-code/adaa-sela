@@ -16,16 +16,10 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/dashboard', 'HomeController@dashboard');
 });
-Route::domain('{organization}.{branch}.localhost')
-    ->middleware(['auth', 'active' , 'tenent'])
-    ->group(function() {
 
-
+Route::group(['middleware' => ['auth', 'active']], function() {
 
 	Route::get('/', 'HomeController@index');
-//	Route::get('/', function($orgnaztion){
-//	    return $orgnaztion;
-//    });
 	Route::get('/dashboard-filter/{start_date}/{end_date}', 'HomeController@dashboardFilter');
 
 	Route::get('language_switch/{locale}', 'LanguageController@switchLanguage');
@@ -293,7 +287,5 @@ Route::domain('{organization}.{branch}.localhost')
 
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('my-transactions/{year}/{month}', 'HomeController@myTransaction');
-
-    Route::resource('organization', 'OrganizationController');
 });
 

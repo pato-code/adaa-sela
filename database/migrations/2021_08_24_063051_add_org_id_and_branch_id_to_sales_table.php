@@ -15,7 +15,7 @@ class AddOrgIdAndBranchIdToSalesTable extends Migration
     {
         Schema::table('sales', function (Blueprint $table) {
             $table->integer('organization_id')->nullable();
-            $table->integer('branch_id')->nullable();0.
+            $table->integer('branch_id')->nullable();
         });
     }
 

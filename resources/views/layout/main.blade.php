@@ -100,7 +100,7 @@
     <script type="text/javascript"
             src="{{ asset('vendor/datatable/dataTables.buttons.min.js') }}"></script>
     <script type="text/javascript"
-            src="{{ asset('vendor/datatable/buttons.bootstrap4.min.js') }}">"></script>
+            src="{{ asset('vendor/datatable/buttons.bootstrap4.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/datatable/buttons.colVis.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/datatable/buttons.html5.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/datatable/buttons.print.min.js') }}"></script>
@@ -114,9 +114,16 @@
             src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script type="text/javascript"
             src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
     <!-- Custom stylesheet - for your changes-->
+
+
     <link rel="stylesheet" href="{{ asset('css/custom-' . $general_setting->theme) }}" type="text/css"
           id="custom-style">
+
+
 </head>
 
 <body onload="myFunction()">
@@ -161,6 +168,22 @@
                     ['role_id', $role->id]
                 ])->first();
                 ?>
+                @if(Auth::user()->organization_id === null)
+                    <li><a href="#organization" aria-expanded="false" data-toggle="collapse"> <i
+                                    class="dripicons-briefcase"></i><span>{{__('file.organization')}}</span></a>
+                        <ul id="organization" class="collapse list-unstyled ">
+                            @if(Auth::user()->organization_id === null)
+                                <li id="organization-menu"><a href="{{route('organization.index')}}">{{__('file.all-organization')}}</a>
+                                </li>
+                            @endif
+                            @if(Auth::user()->organization_id === null)
+                                <li id="organization-menu"><a href="{{route('organization.index')}}">{{__('file.all-organization')}}</a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
+                @endif
+
                 @if($category_permission_active || $index_permission_active || $print_barcode_active || $stock_count_active || $adjustment_active)
                     <li><a href="#product" aria-expanded="false" data-toggle="collapse"> <i
                                 class="dripicons-list"></i><span>{{__('file.product')}}</span><span></a>
@@ -968,6 +991,8 @@
                             <li id="hrm-setting-menu"><a
                                     href="{{route('setting.hrm')}}"> {{trans('file.HRM Setting')}}</a></li>
                         @endif
+                        <li id="role-menu"><a href="{{route('payments_category.index')}}">{{trans('file.payments_category')}}</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

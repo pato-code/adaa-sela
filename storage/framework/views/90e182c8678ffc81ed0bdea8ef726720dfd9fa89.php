@@ -25,9 +25,10 @@
                 <tr>
                     <th class="not-exported"></th>
                     <th><?php echo e(trans('file.organization_name')); ?></th>
-                    <th><?php echo e(trans('file.organization_domain')); ?></th>
-                    <th><?php echo e(trans('file.organization_manager')); ?></th>
-                    <th><?php echo e(trans('file.organization_branches')); ?></th>
+                    <th><?php echo e(trans('file.organization_phone')); ?></th>
+                    <th><?php echo e(trans('file.organization_location')); ?></th>
+                    
+                    
                     <th class="not-exported"><?php echo e(trans('file.action')); ?></th>
                 </tr>
                 </thead>
@@ -36,9 +37,38 @@
                         <tr>
                             <td><?php echo e($organization->id); ?></td>
                             <td><?php echo e($organization->name); ?></td>
-                            <td><?php echo e($organization->domain); ?></td>
-                            <td><?php echo e($organization->manager); ?></td>
-                            <td><?php echo e($organization->branches); ?></td>
+                            <td><?php echo e($organization->phone); ?></td>
+                            <td><?php echo e($organization->location); ?></td>
+
+                            
+                            
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('file.action')); ?>
+
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+
+                                            <li>
+                                                <a href="<?php echo e(route('organization.edit', $organization->id)); ?>" class="btn btn-link"><i class="dripicons-document-edit"></i> <?php echo e(trans('file.edit')); ?></a>
+                                            </li>
+                                        
+                                        <li class="divider"></li>
+
+
+
+                                        <a href="<?php echo e(route('organization.users', $organization->id)); ?>" class="btn btn-link"><i class="dripicons-document-edit"></i> <?php echo e(trans('file.orgnaztion_users')); ?></a>
+                                            
+                                            
+                                                
+                                            
+                                            
+                                        
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
@@ -63,6 +93,19 @@
                             <label><?php echo e(trans('file.organization_name')); ?> *</label>
                             <?php echo e(Form::text('name',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Type name...'))); ?>
 
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label><?php echo e(trans('file.organization_phone')); ?> *</label>
+                            <?php echo e(Form::text('phone',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Type org phone...'))); ?>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label><?php echo e(trans('file.organization_location')); ?> *</label>
+                            <input type="text" name="location" class="form-control" required="required" placeholder="Type org location...">
                         </div>
                     </div>
 

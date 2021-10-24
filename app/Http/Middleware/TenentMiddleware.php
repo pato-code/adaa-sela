@@ -18,44 +18,54 @@ class TenentMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next , $org=null)
     {
-        Session::remove('organization');
-//        Session::put('organization' , $request->has('organization'));
-        if($request->organization){
-////            return Session::push('organization' , $request->has('organization'));
-            if(!Session::has('organization')){
+
+//        Session::put('org_test' , $request->org);
+        if($request->org){
+//            abort(404);
+
+            if(!Session::has('org')){
+                dd(Session::get('org'));
                 try {
-                    $organization = Organization::where('domain', $request->organization)->firstOrFail();
-                    Session::put('organization', $organization);
+                    $organization = Organization::where('domain', $request->route('org'))->firstOrFail();
+                    Session::put('org', $organization);
                     Session::put('organization_id', $organization->id);
                 } catch (Exception $e) {
-                    abort(404);
+                    abort(500);
                 }
             }
-            else if (Session::get('organization')->domain != $request->organization){
+            else if (Session::get('org')->domain != $request->route('org')){
                 try {
-                    $organization = Organization::where('domain', $request->organization)->firstOrFail();
-                    Session::put('organization', $organization);
+                    $organization = Organization::where('domain', $request->route('org'))->firstOrFail();
+                    Session::put('org', $organization);
                     Session::put('organization_id', $organization->id);
                 } catch (Exception $e) {
-                    abort(404);
+                    abort(500);
                 }
             }
-//            if($request->has('branch')){
-//                if(!Session::has('branch')){
-//                    $branch = Branch::where('domain' , $request->has('branch'))->firstOrFail();
-//                    Session::push('branch' , $branch);
-//                } else if (Session::has('branch')->domain != $request->has('branch')){
-//                    $branch = Branch::where('domain' , $request->has('branch'))->firstOrFail();
-//                    Session::push('branch' , $branch);
-//                }
-//            }
         }
-        URL::defaults([
-           'organization' => request('organization'),
-           'branch' => request('branch')
-        ]);
+
+//        else {
+//            dd($org);
+//        }
+
+
+
+        if(request('org')){
+            URL::defaults([
+                'org' => request('org')
+            ]);
+//            $request->route()->forgetParameter('organization');
+        }
+        if(request('branch')){
+            URL::defaults([
+                'branch' => request('branch')
+            ]);
+//            $request->route()->forgetParameter('branch');
+        }
+
+
         return $next($request);
     }
 }

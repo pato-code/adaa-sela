@@ -57,6 +57,8 @@
             <form method="POST" action="<?php echo e(route('login')); ?>" id="login-form">
               <?php echo csrf_field(); ?>
               <div class="form-group-material">
+
+
                 <input id="login-username" type="text" name="name" required class="input-material" value="">
                 <label for="login-username" class="label-material"><?php echo e(trans('file.UserName')); ?></label>
                 <?php if($errors->has('name')): ?>

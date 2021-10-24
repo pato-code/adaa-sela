@@ -2,62 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="765cea95-6ca2-4322-9b79-041ce50c0d41" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Traits/GlobalTrait.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/errors/expierd.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/expierd.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/organization/payment.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/organization/user.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/payments_category/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/payments_category/edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/payments_category/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/all-routes.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/37eZx88SemmBcjdaTZEoFRGcLF2O9fDKGutpFpg6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/EItMkmcqr59LYWTwR4xmjZft2Y3ntvUNxjlUOzba" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/OYpBIclEfLw9UeV59PuQndHUzwOykvkyEMkQV8Xq" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/OtfQ3zOgUMtLsxStxC0cMM4ICEWygHmfg5DqA7EE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/PJBWprBMXUWIJYft86JItOezrvKi3QhuDdKy0jF7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/PN6iZjWIxqIq0Iz0HZ2eltdop8v4BgIOhdJKR1fk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/T5m2omNXXlWd4nIht4QCwOWLCa32zIpYlf6Oinj1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/cvVpv4FMUSOv5L5yZtO369t28mnziMrCHyh1jLCB" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/mOY1A6PQVVaGa3o0TmoazPcud32xJOF1L0C2Mn0R" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/qYzMIlQMRSsKtHM9hnAAbKXtTnbpsmGJq9Yim5XT" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/vAm20eU42oKth2fqGuG1lsPXfRoy007xT9JCausS" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" afterPath="$PROJECT_DIR$/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Kernel.php" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/OrganizationController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrganizationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/TenentMiddleware.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/TenentMiddleware.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Organization.php" afterPath="$PROJECT_DIR$/app/Organization.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Product.php" afterPath="$PROJECT_DIR$/app/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Roles.php" afterPath="$PROJECT_DIR$/app/Roles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/ar/file.php" afterPath="$PROJECT_DIR$/resources/lang/ar/file.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout/main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout/main.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout/top-head.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout/top-head.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/organization/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/organization/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/sale/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/sale/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/sale/pos.blade.php" afterPath="$PROJECT_DIR$/resources/views/sale/pos.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/user/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/8d80b38adbff8605f63cf90a1fc7b6b7d50e19a5.php" afterPath="$PROJECT_DIR$/storage/framework/views/8d80b38adbff8605f63cf90a1fc7b6b7d50e19a5.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/90e182c8678ffc81ed0bdea8ef726720dfd9fa89.php" afterPath="$PROJECT_DIR$/storage/framework/views/90e182c8678ffc81ed0bdea8ef726720dfd9fa89.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/bddf80e2f3bca7d434bcc4d8189488c063acaa94.php" afterPath="$PROJECT_DIR$/storage/framework/views/bddf80e2f3bca7d434bcc4d8189488c063acaa94.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/e241e9eb8ff3b90ce7a3959bd8fdd5f7ff2ccc83.php" afterPath="$PROJECT_DIR$/storage/framework/views/e241e9eb8ff3b90ce7a3959bd8fdd5f7ff2ccc83.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/f71f2f0883e89f0fbdb5ab255f34c3f2cdbb3d40.php" afterPath="$PROJECT_DIR$/storage/framework/views/f71f2f0883e89f0fbdb5ab255f34c3f2cdbb3d40.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/logs/laravel.log" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -551,12 +496,12 @@
       <workItem from="1631359277786" duration="2460000" />
       <workItem from="1631532081836" duration="10000" />
       <workItem from="1631605477044" duration="22000" />
-      <workItem from="1635093736720" duration="22000" />
+      <workItem from="1635093736720" duration="157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69588000" />
+    <option name="totallyTimeSpent" value="69723000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1600" height="873" extended-state="0" />

@@ -57,6 +57,7 @@
                                             </span>
                                         @endif
                                     </div>
+
                                     <div class="customer-section">
                                         <div class="form-group">
                                             <label><strong>{{trans('file.Address')}} *</strong></label>
@@ -80,10 +81,17 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label><strong>{{trans('file.Company Name')}}</strong></label>
-                                        <input type="text" name="company_name" class="form-control">
-                                    </div>
+                                    @if(auth()->user()->organization_id == null)
+                                        <label><strong>{{trans('file.organization')}} *</strong></label>
+                                        <select name="organization_id" required class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Role...">
+                                            @foreach($organizations as $organization)
+                                                <option value="{{$organization->id}}"
+                                                    @if(session('new_organization') == $organization->id)
+                                                        selected
+                                                    @endif>{{$organization->name}} -- {{$organization->domain}}</option>
+                                            @endforeach
+                                        </select>
+                                    @endif
                                     <div class="form-group">
                                         <label><strong>{{trans('file.Role')}} *</strong></label>
                                         <select name="role_id" required class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Role...">
@@ -173,7 +181,7 @@
             $('select[name="warehouse_id"]').prop('required',false);
             $('select[name="biller_id"]').prop('required',false);
         }
-        else if($(this).val() > 2 && $(this).val() != 5) {
+        else if($(this).val() > 2 && $(this).val() < 5) {
             $('select[name="warehouse_id"]').prop('required',true);
             $('select[name="biller_id"]').prop('required',true);
             $('#biller-id').show(300);

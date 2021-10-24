@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Organization;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\User;
 use App\Roles;
@@ -11,6 +13,7 @@ use App\CustomerGroup;
 use App\Customer;
 use Auth;
 use Hash;
+use Illuminate\Support\Facades\DB;
 use Keygen;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
@@ -29,6 +32,7 @@ class UserController extends Controller
             foreach ($permissions as $permission)
                 $all_permission[] = $permission->name;
             $lims_user_list = User::where('is_deleted', false)->get();
+//            return $lims_user_list ;
             return view('user.index', compact('lims_user_list', 'all_permission'));
         }
         else
@@ -43,7 +47,8 @@ class UserController extends Controller
             $lims_biller_list = Biller::where('is_active', true)->get();
             $lims_warehouse_list = Warehouse::where('is_active', true)->get();
             $lims_customer_group_list = CustomerGroup::where('is_active', true)->get();
-            return view('user.create', compact('lims_role_list', 'lims_biller_list', 'lims_warehouse_list', 'lims_customer_group_list'));
+            $organizations = Organization::expiring()->get();
+            return view('user.create', compact('lims_role_list', 'lims_biller_list', 'lims_warehouse_list', 'lims_customer_group_list' , 'organizations'));
         }
         else
             return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');
@@ -100,6 +105,10 @@ class UserController extends Controller
         $data['is_deleted'] = false;
         $data['password'] = bcrypt($data['password']);
         $data['phone'] = $data['phone_number'];
+        $data['expires_at'] = Carbon::now()->endOfMonth()->addDays(5)->hour(0)->minute(0)->second(0);
+        if(!(auth()->user()->organization_id == null)){
+            unset($data['organization_id']);
+        }
         User::create($data);
         if($data['role_id'] == 5) {
             $data['name'] = $data['customer_name'];
@@ -115,6 +124,7 @@ class UserController extends Controller
         $role = Role::find(Auth::user()->role_id);
         if($role->hasPermissionTo('users-edit')){
             $lims_user_data = User::find($id);
+//            return $lims_user_data;
             $lims_role_list = Roles::where('is_active', true)->get();
             $lims_biller_list = Biller::where('is_active', true)->get();
             $lims_warehouse_list = Warehouse::where('is_active', true)->get();

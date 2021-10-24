@@ -17,6 +17,7 @@ use App\Customer;
 use DB;
 use Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
 {
@@ -32,8 +33,7 @@ class HomeController extends Controller
 
     public function index()
     {
-//        return Auth::routes();
-//        return route('category.index');
+//        return request('organization');
         if(Auth::user()->role_id == 5) {
             $customer = Customer::select('id')->where('user_id', Auth::id())->first();
             $lims_sale_data = Sale::with('warehouse')->where('customer_id', $customer->id)->orderBy('created_at', 'desc')->get();

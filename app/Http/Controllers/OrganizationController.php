@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Organization;
+use App\PaymentCategory;
+use App\SystemPayment;
+use App\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use \Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class OrganizationController extends Controller
 {
@@ -42,8 +49,10 @@ class OrganizationController extends Controller
         $organization = new Organization();
         $organization->fill($request->all());
         $organization->domain = str_replace(' ', '-' , $request->name);
+        $organization->expires_at = Carbon::today()->addMonth();
         $organization->save();
-        return redirect(route('organization.index'));
+        Session::put('new_organization' , $organization->id);
+        return redirect(route('user.create'));
     }
 
     /**
@@ -89,5 +98,24 @@ class OrganizationController extends Controller
     public function destroy(Organization $organization)
     {
         //
+    }
+
+    public function payments(Organization $organization , User $user){
+        $payments = SystemPayment::where('organization_id' , $organization->id)->where('user_id' , $user->id)->orderBy('id' , 'DESC')->get();
+
+        $categories = PaymentCategory::all();
+        return view('organization.payment' , compact('payments' , 'organization' , 'user' , 'categories'));
+    }
+
+    public function users(Organization $organization){
+        $users = User::with('role')
+            ->where('organization_id' , $organization->id)->orderBy('id' , 'DESC')->get();
+        $role = Role::find(Auth::user()->role_id);
+        $permissions = Role::findByName($role->name)->permissions;
+        foreach ($permissions as $permission)
+            $all_permission[] = $permission->name;
+//        return $users;
+//        $payments = SystemPayment::where('organization_id' , $organization->id)->orderBy('id' , 'DESC')->get();
+        return view('organization.user' , compact('users' , 'organization' , 'all_permission'));
     }
 }

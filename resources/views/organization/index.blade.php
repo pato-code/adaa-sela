@@ -26,9 +26,10 @@
                 <tr>
                     <th class="not-exported"></th>
                     <th>{{trans('file.organization_name')}}</th>
-                    <th>{{trans('file.organization_domain')}}</th>
-                    <th>{{trans('file.organization_manager')}}</th>
-                    <th>{{trans('file.organization_branches')}}</th>
+                    <th>{{trans('file.organization_phone')}}</th>
+                    <th>{{trans('file.organization_location')}}</th>
+                    {{--<th>{{trans('file.expierd-date')}}</th>--}}
+                    {{--<th>{{trans('file.organization_branches')}}</th>--}}
                     <th class="not-exported">{{trans('file.action')}}</th>
                 </tr>
                 </thead>
@@ -37,9 +38,37 @@
                         <tr>
                             <td>{{ $organization->id }}</td>
                             <td>{{ $organization->name }}</td>
-                            <td>{{ $organization->domain }}</td>
-                            <td>{{ $organization->manager }}</td>
-                            <td>{{ $organization->branches }}</td>
+                            <td>{{ $organization->phone }}</td>
+                            <td>{{ $organization->location }}</td>
+
+                            {{--<td>{{ \Carbon\Carbon::parse($organization->expires_at)->diffforhumans() }}</td>--}}
+                            {{--<td>{{ $organization->branches }}</td>--}}
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{trans('file.action')}}
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+{{--                                        @if(in_array("organizations-edit", $all_permission))--}}
+                                            <li>
+                                                <a href="{{ route('organization.edit', $organization->id) }}" class="btn btn-link"><i class="dripicons-document-edit"></i> {{trans('file.edit')}}</a>
+                                            </li>
+                                        {{--@endif--}}
+                                        <li class="divider"></li>
+{{--                                        @if(in_array("organizations-delete", $all_permission))--}}
+{{--                                        <a href="{{ route('organization.payment', $organization->id) }}" class="btn btn-link"><i class="dripicons-document-edit"></i> {{trans('file.payment')}}</a>--}}
+
+                                        <a href="{{ route('organization.users', $organization->id) }}" class="btn btn-link"><i class="dripicons-document-edit"></i> {{trans('file.orgnaztion_users')}}</a>
+                                            {{--{{ Form::open(['route' => ['organization.destroy', $organization->id], 'method' => 'DELETE'] ) }}--}}
+                                            {{--<li>--}}
+                                                {{--<button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> {{trans('file.delete')}}</button>--}}
+                                            {{--</li>--}}
+                                            {{--{{ Form::close() }}--}}
+                                        {{--@endif--}}
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -62,6 +91,18 @@
                         <div class="col-md-6 form-group">
                             <label>{{trans('file.organization_name')}} *</label>
                             {{Form::text('name',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Type name...'))}}
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label>{{trans('file.organization_phone')}} *</label>
+                            {{Form::text('phone',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Type org phone...'))}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>{{trans('file.organization_location')}} *</label>
+                            <input type="text" name="location" class="form-control" required="required" placeholder="Type org location...">
                         </div>
                     </div>
 

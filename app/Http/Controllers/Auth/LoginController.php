@@ -8,11 +8,13 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 
+use App\Organization;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
-  
 
 class LoginController extends Controller
 
@@ -39,9 +41,12 @@ class LoginController extends Controller
     public function __construct()
 
     {
+//        if(request('organization')){
+//            session('organization' , request('organization'));
+//        }
 //        $this->middleware('tenent');
-        $this->middleware(['guest' , 'tenent'])->except('logout');
-        $this->middleware(['tenent'])->only('logout');
+        $this->middleware(['guest' ])->except('logout');
+//        $this->middleware(['tenent'])->only('logout');
 
     }
 
@@ -79,6 +84,21 @@ class LoginController extends Controller
 
         {
 
+            if(auth()->user()->organization_id){
+                $organization = Organization::find(auth()->user()->organization_id);
+                Session::put('org', $organization);
+                Session::put('organization_id', $organization->id);
+//                dd(Session::get('org'));
+//                URL::defaults([
+//                    'org' => $organization->domain
+//                ]);
+//                return redirect(
+//                    route('org.home' , [
+//                        'org' => $organization->domain
+//                    ])
+//                );
+//                return redirect(url('/org/' . $organization->domain . '/'));
+            }
             return redirect('/');
 
         }else{

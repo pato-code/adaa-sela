@@ -88,6 +88,13 @@
       'DNS2D' => 'Milon\\Barcode\\Facades\\DNS2DFacade',
     ),
   ),
+  'mvdnbrk/laravel-model-expires' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Mvdnbrk\\EloquentExpirable\\ExpirableServiceProvider',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 

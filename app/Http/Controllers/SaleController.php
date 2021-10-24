@@ -68,13 +68,13 @@ class SaleController extends Controller
                 FacadesDB::enableQueryLog();
                 $lims_sale_all = Sale::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
                 $quries = DB::getQueryLog();
-                return $quries;
+//                return $quries;
             }
             else{
                 FacadesDB::enableQueryLog();
                 $lims_sale_all = Sale::orderBy('id', 'desc')->get();
                 $quries = DB::getQueryLog();
-                return $quries;
+//                return $quries;
             }
             $lims_gift_card_list = GiftCard::where("is_active", true)->get();
             $lims_pos_setting_data = PosSetting::latest()->first();

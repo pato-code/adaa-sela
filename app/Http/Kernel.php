@@ -19,7 +19,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\TenentMiddleware::class
+        \App\Http\Middleware\TenentMiddleware::class,
+        \App\Http\Middleware\ExpiredMiddleware::class,
     ];
 
     /**
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'active' => \App\Http\Middleware\Active::class,
         'tenent' => \App\Http\Middleware\TenentMiddleware::class,
+        'expired' => \App\Http\Middleware\ExpiredMiddleware::class,
     ];
 
     /**

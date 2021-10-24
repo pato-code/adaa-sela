@@ -100,7 +100,7 @@
     <script type="text/javascript"
             src="<?php echo e(asset('vendor/datatable/dataTables.buttons.min.js')); ?>"></script>
     <script type="text/javascript"
-            src="<?php echo e(asset('vendor/datatable/buttons.bootstrap4.min.js')); ?>">"></script>
+            src="<?php echo e(asset('vendor/datatable/buttons.bootstrap4.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('vendor/datatable/buttons.colVis.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('vendor/datatable/buttons.html5.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('vendor/datatable/buttons.print.min.js')); ?>"></script>
@@ -114,9 +114,16 @@
             src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script type="text/javascript"
             src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
     <!-- Custom stylesheet - for your changes-->
+
+
     <link rel="stylesheet" href="<?php echo e(asset('css/custom-' . $general_setting->theme)); ?>" type="text/css"
           id="custom-style">
+
+
 </head>
 
 <body onload="myFunction()">
@@ -161,6 +168,22 @@
                     ['role_id', $role->id]
                 ])->first();
                 ?>
+                <?php if(Auth::user()->organization_id === null): ?>
+                    <li><a href="#organization" aria-expanded="false" data-toggle="collapse"> <i
+                                    class="dripicons-briefcase"></i><span><?php echo e(__('file.organization')); ?></span></a>
+                        <ul id="organization" class="collapse list-unstyled ">
+                            <?php if(Auth::user()->organization_id === null): ?>
+                                <li id="organization-menu"><a href="<?php echo e(route('organization.index')); ?>"><?php echo e(__('file.all-organization')); ?></a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if(Auth::user()->organization_id === null): ?>
+                                <li id="organization-menu"><a href="<?php echo e(route('organization.index')); ?>"><?php echo e(__('file.all-organization')); ?></a>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+
                 <?php if($category_permission_active || $index_permission_active || $print_barcode_active || $stock_count_active || $adjustment_active): ?>
                     <li><a href="#product" aria-expanded="false" data-toggle="collapse"> <i
                                 class="dripicons-list"></i><span><?php echo e(__('file.product')); ?></span><span></a>
@@ -980,6 +1003,8 @@
                             <li id="hrm-setting-menu"><a
                                     href="<?php echo e(route('setting.hrm')); ?>"> <?php echo e(trans('file.HRM Setting')); ?></a></li>
                         <?php endif; ?>
+                        <li id="role-menu"><a href="<?php echo e(route('payments_category.index')); ?>"><?php echo e(trans('file.payments_category')); ?></a>
+                        </li>
                     </ul>
                 </li>
             </ul>
